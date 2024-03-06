@@ -1,8 +1,9 @@
 <script setup>
-import Header from '@/Shared/Header.vue';
-import Footer from '@/Shared/Footer.vue';
-import { usePage } from '@inertiajs/vue3';
 
+
+import { usePage, Link } from '@inertiajs/vue3';
+
+import FrontendLayout from '@/Layouts/FrontendLayout.vue';
 
 
 const {products} = usePage().props ;
@@ -10,10 +11,13 @@ console.log(products);
 </script>
 
 <template>
+
+<FrontendLayout>
+
     <div>
     <main>
 
-<Header/>
+
 
 
       <!-- Banner -->
@@ -74,7 +78,7 @@ console.log(products);
         <img class="card-img-top w-100" v-bind:src="'images/' + item.image" alt="courses" />
         <div class="card-body">
             <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{ item.name }}</h5>
-            <a class="text-muted fs--1 stretched-link text-decoration-none" href="#!">The Museum of Modern Art</a>
+            <Link class="nav-link" :href="route('productDetails', { id: item.id })">Product Details</Link>
         </div>
     </div>
 </div>
@@ -187,16 +191,10 @@ console.log(products);
           </div>
         </div>
         <!-- end of .container-->
-
-      </section>
-      
-      
-
-      <Footer/>
-
-
+      </section>    
     </main>
     </div>
+  </FrontendLayout>
 </template>
 
 <style>
