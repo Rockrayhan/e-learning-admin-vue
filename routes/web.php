@@ -31,7 +31,7 @@ use Inertia\Inertia;
 // frontend controllers
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/all-courses', [HomeController::class, 'allcourses']);
+Route::get('/all-courses', [HomeController::class, 'allcourses'])->name('allcourses') ;
 Route::get('/productDetails/{id}', [ProductDetailsController::class, 'index'])->name('productDetails');
 
 // ->middleware('student')
